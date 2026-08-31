@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#F5F7FA" />
+  <title>Assistente Financeiro — Protótipo Acadêmico</title>
+  <meta
+    name="description"
+    content="Protótipo acadêmico de um assistente financeiro conversacional para explicar, planejar e acompanhar dívidas."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Início">
+        <span class="brand-mark">IA</span>
+        <span class="brand-text">
+          <strong>Assistente Financeiro</strong>
+          <small>protótipo acadêmico</small>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="#projeto">Projeto</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#demo">Testar assistente</a>
+      </nav>
+
+      <a class="btn btn-primary btn-small" href="#demo">Testar agora</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">INCLUSÃO FINANCEIRA + EXPERIÊNCIA DIGITAL</span>
+          <h1>Entender suas dívidas não deveria ser difícil.</h1>
+          <p>
+            Um assistente que conversa, explica e ajuda você a encontrar
+            um caminho para sair das dívidas.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#demo">Testar o assistente</a>
+            <a class="btn btn-secondary" href="#projeto">Entender a solução</a>
+          </div>
+
+          <div class="hero-proof">
+            <div class="proof-item">
+              <span class="proof-icon">Aa</span>
+              <span>Linguagem simples</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-icon">◉</span>
+              <span>Orientação por voz</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-icon">✓</span>
+              <span>Plano que cabe no bolso</span>
+            </div>
+          </div>
+
+          <p class="prototype-note">
+            Protótipo acadêmico/conceitual. Não é um produto oficial do Itaú e não realiza transações reais.
+          </p>
+        </div>
+
+        <div class="hero-phone-wrap" aria-label="Prévia do assistente">
+          <div class="phone-shell hero-phone">
+            <div class="phone-topbar">
+              <div class="phone-speaker"></div>
+            </div>
+            <div class="mini-chat">
+              <div class="mini-app-header">
+                <div class="avatar">A</div>
+                <div>
+                  <strong>Assistente Financeiro</strong>
+                  <small>Assistente virtual</small>
+                </div>
+              </div>
+
+              <div class="mini-chat-body">
+                <div class="bubble assistant">
+                  <p>Oi, João 👋</p>
+                  <p>Vi que você tem uma dívida em aberto.</p>
+                  <p>Quer que eu te explique?</p>
+                </div>
+
+                <button class="quick-choice">Sim, me explica</button>
+                <button class="quick-choice ghost">Quero ver minha dívida</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="floating-card floating-card-one">
+            <span>R$ 3.200</span>
+            <small>dívida atual</small>
+          </div>
+
+          <div class="floating-card floating-card-two">
+            <span>🔊</span>
+            <small>ouvir resposta</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo" class="demo-section section">
+      <div class="container demo-layout">
+        <div class="demo-info">
+          <span class="eyebrow">DEMONSTRAÇÃO INTERATIVA</span>
+          <h2>Veja a solução funcionando.</h2>
+          <p>
+            Navegue como se estivesse dentro do aplicativo. O fluxo usa dados fictícios,
+            funciona sem IA externa e foi desenhado para ser compreendido em poucos segundos.
+          </p>
+
+          <div class="demo-checklist">
+            <div>
+              <span>01</span>
+              <p><strong>Entender</strong><br>Explicações curtas e sem jargões.</p>
+            </div>
+            <div>
+              <span>02</span>
+              <p><strong>Planejar</strong><br>Escolha de parcela e data-meta.</p>
+            </div>
+            <div>
+              <span>03</span>
+              <p><strong>Agir</strong><br>Simulação de negociação e acompanhamento.</p>
+            </div>
+          </div>
+
+          <div class="demo-hint">
+            <strong>Dica:</strong> clique nos botões sugeridos dentro do chat para percorrer o fluxo completo.
+          </div>
+        </div>
+
+        <div class="app-stage">
+          <div class="phone-shell app-phone" id="appPhone">
+            <div class="phone-topbar">
+              <div class="phone-speaker"></div>
+            </div>
+
+            <div class="app">
+              <div class="app-header">
+                <div class="assistant-identity">
+                  <button class="icon-btn back-btn hidden" id="backBtn" aria-label="Voltar">‹</button>
+                  <div class="avatar">A</div>
+                  <div>
+                    <strong>Assistente Financeiro</strong>
+                    <span><i class="status-dot"></i> Assistente virtual</span>
+                  </div>
+                </div>
+
+                <label class="simple-toggle" title="Ativar modo simples">
+                  <input type="checkbox" id="simpleModeToggle" />
+                  <span class="toggle-ui"></span>
+                  <span>Modo simples</span>
+                </label>
+              </div>
+
+              <div class="context-strip" id="contextStrip">
+                <div>
+                  <small>Saldo</small>
+                  <strong>R$ 1.240</strong>
+                </div>
+                <div>
+                  <small>Dívida</small>
+                  <strong>R$ 3.200</strong>
+                </div>
+                <button class="mini-link" id="openDebtBtn">Ver dívida</button>
+              </div>
+
+              <div class="screen-area">
+                <section class="screen chat-screen active" id="chatScreen" aria-label="Conversa">
+                  <div class="chat-feed" id="chatFeed" aria-live="polite"></div>
+                  <div class="quick-actions" id="quickActions"></div>
+
+                  <div class="typing-row hidden" id="typingIndicator">
+                    <div class="avatar tiny">A</div>
+                    <div class="typing-bubble"><span></span><span></span><span></span></div>
+                  </div>
+
+                  <div class="chat-composer">
+                    <button class="composer-icon" id="micBtn" aria-label="Falar mensagem" title="Falar mensagem">🎙</button>
+                    <input id="messageInput" type="text" placeholder="Digite uma mensagem..." autocomplete="off" />
+                    <button class="send-btn" id="sendBtn" aria-label="Enviar mensagem">➜</button>
+                  </div>
+                </section>
+
+                <section class="screen" id="debtScreen" aria-label="Minha dívida">
+                  <div class="screen-scroll">
+                    <div class="screen-kicker">MINHA DÍVIDA</div>
+                    <h3>Cartão de crédito</h3>
+
+                    <div class="debt-amount-card">
+                      <small>Valor atual</small>
+                      <strong>R$ 3.200</strong>
+                      <span>Pagamento mínimo atual: R$ 480</span>
+                    </div>
+
+                    <div class="friendly-note">
+                      <span class="note-icon">✓</span>
+                      <div>
+                        <strong>Você não precisa pagar tudo hoje.</strong>
+                        <p>Podemos montar um plano juntos.</p>
+                      </div>
+                    </div>
+
+                    <div class="stacked-actions">
+                      <button class="btn btn-primary app-action" data-action="explainDebt">Entender essa dívida</button>
+                      <button class="btn btn-secondary app-action" data-action="startPlan">Montar um plano</button>
+                      <button class="btn btn-light app-action" data-action="payDebt">Quero pagar</button>
+                    </div>
+
+                    <p class="data-note">Dados fictícios para demonstração.</p>
+                  </div>
+                </section>
+
+                <section class="screen" id="explainScreen" aria-label="Explicação da dívida">
+                  <div class="screen-scroll">
+                    <div class="screen-kicker">ENTENDA SUA DÍVIDA</div>
+                    <h3>Você deve R$ 3.200.</h3>
+                    <p class="screen-lead">
+                      Se não pagar, o banco pode cobrar <button class="inline-help" data-help="interest">juros <span>?</span></button>.
+                    </p>
+
+                    <div class="visual-explanation">
+                      <div class="explain-step">
+                        <span class="step-dot"></span>
+                        <div>
+                          <small>Hoje</small>
+                          <strong>R$ 3.200</strong>
+                        </div>
+                      </div>
+                      <div class="arrow-down">↓</div>
+                      <div class="explain-step warn">
+                        <span class="step-dot"></span>
+                        <div>
+                          <small>Se demorar para pagar</small>
+                          <strong>A dívida pode ficar maior</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="plain-language-card">
+                      <span>💬</span>
+                      <p>Mas calma. Vamos encontrar uma forma de pagar que caiba no seu bolso.</p>
+                    </div>
+
+                    <div class="stacked-actions">
+                      <button class="btn btn-primary" id="listenExplanationBtn">🔊 Ouvir explicação</button>
+                      <button class="btn btn-secondary app-action" data-action="startPlan">Entendi</button>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="screen" id="planScreen" aria-label="Criar plano">
+                  <div class="screen-scroll">
+                    <div class="screen-kicker">CRIAR MEU PLANO</div>
+                    <h3>Quanto cabe no seu bolso?</h3>
+                    <p class="screen-lead">
+                      Pense em um valor que não atrapalhe comida, aluguel ou contas.
+                    </p>
+
+                    <div class="amount-grid" id="amountGrid">
+                      <button data-value="200">R$ 200</button>
+                      <button data-value="300">R$ 300</button>
+                      <button data-value="400">R$ 400</button>
+                      <button data-value="500">R$ 500</button>
+                    </div>
+
+                    <div class="custom-value">
+                      <label for="customAmount">Outro valor</label>
+                      <div>
+                        <span>R$</span>
+                        <input id="customAmount" type="number" min="100" max="1200" step="50" placeholder="350" />
+                      </div>
+                    </div>
+
+                    <button class="btn btn-primary full" id="continuePlanBtn" disabled>Continuar</button>
+
+                    <div class="budget-preview">
+                      <div>
+                        <span>Renda</span>
+                        <strong>R$ 2.400</strong>
+                      </div>
+                      <div>
+                        <span>Contas essenciais</span>
+                        <strong>R$ 1.600</strong>
+                      </div>
+                      <div>
+                        <span>Faixa sugerida</span>
+                        <strong>R$ 300–500</strong>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="screen" id="goalScreen" aria-label="Meta de quitação">
+                  <div class="screen-scroll">
+                    <div class="screen-kicker">SUA META</div>
+                    <h3>Quando você gostaria de terminar de pagar?</h3>
+
+                    <div class="goal-options" id="goalOptions">
+                      <button data-months="6">
+                        <span>Em 6 meses</span>
+                        <strong>≈ R$ 533/mês</strong>
+                      </button>
+                      <button data-months="8">
+                        <span>Em 8 meses</span>
+                        <strong>≈ R$ 400/mês</strong>
+                      </button>
+                      <button data-months="12">
+                        <span>Em 12 meses</span>
+                        <strong>≈ R$ 267/mês</strong>
+                      </button>
+                    </div>
+
+                    <div class="custom-date-wrap">
+                      <label for="goalDate">Ou escolha uma data</label>
+                      <input type="month" id="goalDate" min="2026-09" max="2030-12" />
+                    </div>
+
+                    <p class="data-note">Valores apenas ilustrativos. Não consideram juros bancários reais.</p>
+
+                    <button class="btn btn-primary full" id="confirmGoalBtn" disabled>Ver se cabe no meu bolso</button>
+                  </div>
+                </section>
+
+                <section class="screen" id="budgetScreen" aria-label="Análise de orçamento">
+                  <div class="screen-scroll">
+                    <div class="screen-kicker">SEU ORÇAMENTO</div>
+                    <h3>Esse plano cabe no seu mês?</h3>
+
+                    <div class="budget-card">
+                      <div><span>Renda mensal</span><strong>R$ 2.400</strong></div>
+                      <div><span>Contas essenciais</span><strong>R$ 1.600</strong></div>
+                      <div><span>Valor da parcela</span><strong id="budgetInstallment">R$ 400</strong></div>
+                      <hr>
+                      <div class="remaining"><span>Sobra estimada</span><strong id="budgetRemaining">R$ 400</strong></div>
+                    </div>
+
+                    <div class="assessment-card" id="assessmentCard">
+                      <span class="assessment-icon">✓</span>
+                      <div>
+                        <strong id="assessmentTitle">Esse plano parece caber no seu orçamento.</strong>
+                        <p id="assessmentText">Você ainda mantém uma margem para outros gastos do mês.</p>
+                      </div>
+                    </div>
+
+                    <div class="stacked-actions">
+                      <button class="btn btn-primary" id="acceptBudgetBtn">Continuar</button>
+                      <button class="btn btn-secondary app-action" data-action="startPlan">Escolher outro valor</button>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="screen" id="dealScreen" aria-label="Simulação de acordo">
+                  <div class="screen-scroll">
+                    <div class="screen-kicker">SIMULAÇÃO DE NEGOCIAÇÃO</div>
+                    <h3>Encontrei uma opção para você.</h3>
+
+                    <div class="deal-card">
+                      <div><span>Dívida</span><strong>R$ 3.200</strong></div>
+                      <div><span>Plano escolhido</span><strong id="dealPlan">8x de R$ 400</strong></div>
+                      <div><span>Primeiro pagamento</span><strong>10/09/2026</strong></div>
+                    </div>
+
+                    <div class="safety-box">
+                      <strong>Antes de continuar</strong>
+                      <p>Esta tela é apenas uma simulação. Nenhuma contratação ou pagamento real será feito.</p>
+                    </div>
+
+                    <button class="btn btn-primary full" id="reviewDealBtn">Continuar</button>
+                  </div>
+                </section>
+
+                <section class="screen" id="reviewScreen" aria-label="Revisão do plano">
+                  <div class="screen-scroll">
+                    <div class="screen-kicker">REVISAR PLANO</div>
+                    <h3>Antes de confirmar, veja tudo de novo.</h3>
+
+                    <div class="summary-list">
+                      <div>
+                        <span>Valor da dívida</span>
+                        <strong>R$ 3.200</strong>
+                      </div>
+                      <div>
+                        <span>Valor por mês</span>
+                        <strong id="reviewInstallment">R$ 400</strong>
+                      </div>
+                      <div>
+                        <span>Quantidade de meses</span>
+                        <strong id="reviewMonths">8 meses</strong>
+                      </div>
+                      <div>
+                        <span>Primeiro pagamento</span>
+                        <strong>10/09/2026</strong>
+                      </div>
+                    </div>
+
+                    <label class="confirm-check">
+                      <input type="checkbox" id="simulationCheck" />
+                      <span>Entendi que esta contratação é apenas uma simulação.</span>
+                    </label>
+
+                    <button class="btn btn-primary full" id="simulateBtn" disabled>Simular contratação</button>
+                    <button class="btn btn-secondary full app-action" data-action="startPlan">Alterar plano</button>
+                  </div>
+                </section>
+
+                <section class="screen" id="successScreen" aria-label="Plano criado">
+                  <div class="screen-scroll success-layout">
+                    <div class="success-icon">✓</div>
+                    <div class="screen-kicker">SIMULAÇÃO CONCLUÍDA</div>
+                    <h3>Plano criado 🎉</h3>
+                    <p class="screen-lead">
+                      Agora você já sabe quanto precisa pagar por mês.
+                    </p>
+
+                    <div class="plan-summary-card">
+                      <small>Seu plano</small>
+                      <strong id="successPlan">8x de R$ 400</strong>
+                      <div class="progress-track">
+                        <div class="progress-fill" style="width: 0%"></div>
+                      </div>
+                      <span>Comece em 10/09/2026</span>
+                    </div>
+
+                    <button class="btn btn-primary full" id="openTrackingBtn">Ver acompanhamento</button>
+                    <button class="btn btn-secondary full" id="restartBtnSuccess">Recomeçar demo</button>
+                  </div>
+                </section>
+
+                <section class="screen" id="trackingScreen" aria-label="Acompanhamento">
+                  <div class="screen-scroll">
+                    <div class="screen-kicker">SEU CAMINHO</div>
+                    <h3>Você está avançando.</h3>
+
+                    <div class="progress-card">
+                      <div class="progress-top">
+                        <div>
+                          <small>Pago</small>
+                          <strong>R$ 800</strong>
+                        </div>
+                        <span>25%</span>
+                      </div>
+                      <div class="progress-track large">
+                        <div class="progress-fill animated" style="width: 25%"></div>
+                      </div>
+                      <div class="progress-bottom">
+                        <span>R$ 2.400 restantes</span>
+                        <span>2 parcelas pagas</span>
+                      </div>
+                    </div>
+
+                    <div class="encourage-card">
+                      <span>✓</span>
+                      <p>Você já pagou 2 parcelas. Continue assim.</p>
+                    </div>
+
+                    <div class="next-payment">
+                      <span>Próxima parcela</span>
+                      <strong id="nextPaymentAmount">R$ 400</strong>
+                      <small>10 de novembro</small>
+                    </div>
+
+                    <button class="btn btn-primary full" id="needHelpBtn">Preciso de ajuda</button>
+                  </div>
+                </section>
+
+                <section class="screen" id="helpScreen" aria-label="Dificuldade para pagar">
+                  <div class="screen-scroll">
+                    <div class="screen-kicker">ESTOU AQUI PARA AJUDAR</div>
+                    <h3>O que aconteceu?</h3>
+
+                    <div class="help-options">
+                      <button data-problem="Não consigo pagar esse mês">Não consigo pagar esse mês</button>
+                      <button data-problem="Minha renda diminuiu">Minha renda diminuiu</button>
+                      <button data-problem="Tive um gasto inesperado">Tive um gasto inesperado</button>
+                      <button data-problem="Quero diminuir minha parcela">Quero diminuir minha parcela</button>
+                    </div>
+
+                    <div class="support-message hidden" id="supportMessage">
+                      <div class="avatar">A</div>
+                      <div>
+                        <strong>Entendi.</strong>
+                        <p>Vamos tentar ajustar seu plano para não comprometer suas contas essenciais.</p>
+                      </div>
+                    </div>
+
+                    <button class="btn btn-primary full hidden" id="adjustPlanBtn">Ajustar meu plano</button>
+                  </div>
+                </section>
+              </div>
+
+              <div class="toast hidden" id="toast">Plano atualizado.</div>
+
+              <div class="modal hidden" id="helpModal" role="dialog" aria-modal="true" aria-labelledby="helpModalTitle">
+                <div class="modal-backdrop" data-close-modal></div>
+                <div class="modal-card">
+                  <button class="modal-close" data-close-modal aria-label="Fechar">×</button>
+                  <div class="modal-icon">?</div>
+                  <h4 id="helpModalTitle">O que são juros?</h4>
+                  <p id="helpModalText">
+                    Juros são um valor extra que pode ser cobrado quando uma dívida demora para ser paga.
+                  </p>
+                  <button class="btn btn-primary full" data-close-modal>Entendi</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="desktop-controls">
+            <button id="restartDemoBtn">↻ Reiniciar demonstração</button>
+            <span>Dados fictícios • sem transações reais</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projeto" class="project-section section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">O CONCEITO</span>
+          <h2>Mais do que cobrar uma dívida. Ajudar a resolver.</h2>
+          <p>
+            A solução combina educação financeira, planejamento e ação em uma única conversa.
+          </p>
+        </div>
+
+        <div class="pillar-grid">
+          <article class="pillar-card">
+            <div class="pillar-number">01</div>
+            <div class="pillar-icon">Aa</div>
+            <h3>Entender</h3>
+            <p>Explica dívidas e conceitos financeiros usando linguagem que qualquer pessoa consegue entender.</p>
+          </article>
+
+          <article class="pillar-card">
+            <div class="pillar-number">02</div>
+            <div class="pillar-icon">◎</div>
+            <h3>Planejar</h3>
+            <p>Ajuda o cliente a encontrar uma parcela e uma data de pagamento compatíveis com sua realidade.</p>
+          </article>
+
+          <article class="pillar-card">
+            <div class="pillar-number">03</div>
+            <div class="pillar-icon">→</div>
+            <h3>Agir</h3>
+            <p>Transforma orientação em ação: negociar, acompanhar e futuramente realizar pagamentos pelo assistente.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="como-funciona" class="journey-section section">
+      <div class="container">
+        <div class="section-heading compact">
+          <span class="eyebrow">JORNADA</span>
+          <h2>Uma jornada completa dentro da conversa.</h2>
+        </div>
+
+        <div class="journey-flow">
+          <div><span>1</span><strong>Entender</strong></div>
+          <i>→</i>
+          <div><span>2</span><strong>Planejar</strong></div>
+          <i>→</i>
+          <div><span>3</span><strong>Negociar</strong></div>
+          <i>→</i>
+          <div><span>4</span><strong>Pagar</strong></div>
+          <i>→</i>
+          <div><span>5</span><strong>Acompanhar</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="value-section section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">VALOR GERADO</span>
+          <h2>Uma experiência melhor para os dois lados.</h2>
+        </div>
+
+        <div class="value-grid">
+          <article class="value-card client">
+            <span class="value-label">PARA O CLIENTE</span>
+            <ul>
+              <li>Menos vergonha e ansiedade ao lidar com dívidas</li>
+              <li>Linguagem acessível e explicações por voz</li>
+              <li>Mais autonomia para entender e decidir</li>
+              <li>Planejamento compatível com a realidade financeira</li>
+              <li>Uma experiência simples, guiada e acolhedora</li>
+            </ul>
+          </article>
+
+          <article class="value-card bank">
+            <span class="value-label">PARA O BANCO</span>
+            <ul>
+              <li>Maior engajamento na jornada de negociação</li>
+              <li>Menos fricção em canais digitais</li>
+              <li>Potencial de melhorar recuperação de crédito</li>
+              <li>Relacionamento mais próximo com o cliente</li>
+              <li>Educação financeira integrada à experiência</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-section section">
+      <div class="container closing-card">
+        <div>
+          <span class="eyebrow light">PROTÓTIPO INTERATIVO</span>
+          <h2>Teste o fluxo completo em menos de 2 minutos.</h2>
+          <p>Veja como linguagem simples, voz e planejamento podem transformar uma conversa sobre dívida.</p>
+        </div>
+        <a class="btn btn-white" href="#demo">Abrir assistente</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>Projeto acadêmico de inovação</span>
+      <p>
+        Protótipo conceitual criado para demonstração. Não é um produto oficial do Itaú.
+        Dados, valores e negociações exibidos são fictícios.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
